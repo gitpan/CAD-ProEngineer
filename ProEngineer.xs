@@ -1,3 +1,12 @@
+
+/* CAD::ProEngineer.xs
+ *
+ * Copyright (c) 2003 Marc Mettes
+ *
+ * See COPYRIGHT section in ProEngineer.pm for usage and distribution rights.
+ */
+
+
 #include "EXTERN.h"
 #include "perl.h"
 #include "XSUB.h"

@@ -1,25 +1,17 @@
 
 use ExtUtils::MakeMaker;
 
-# See lib/ExtUtils/MakeMaker.pm for details of how to influence
-# the contents of the Makefile that is written.
-
 
 if ($^O =~ /win/i) {
-  $ProToolkitIncludeDir = ' -Id:/ptc-apps/protk23-2002270/protoolkit/includes ';
-  $ProToolkitDefines = ' -DPROE_BUILD  -DPRO_MACHINE=19 -DPRO_OS=3 -DSOLARIS ';
-  $ProToolkitDefines = ' -DPRO_MACHINE=29 -DPRO_OS=4 -Dhypot=_hypot '
-                       . ' -DMSB_LEFT -Dfar=ptc_far -Dhuge=p_huge ' 
-                       . ' -Dnear=p_near -c -W2 -G4 -D_X86_=1 ' 
-                       . ' -D_WSTDIO_DEFINED ';
+  $ProToolkitIncludeDir = ' -Iprotk23-2002270/protoolkit/includes ';
+  $ProToolkitDefines = ' -DPRO_MACHINE=29 ';
   $ExtraLibs = '../properl/properlexe.lib';
   # $ExtraLibs = '../properl/properldll.lib';
-  $OtherLDFlags = ' -force /NODEFAULTLIB:libcmd.lib /subsystem:console /debug:none '
-                  . ' /debugtype:coff /machine:i386 ';
+  $OtherLDFlags = '';
 }
-else {
-  $ProToolkitIncludeDir = '-I/home/mcm/sw/protk23-2002140/protoolkit/includes ';
-  $ProToolkitDefines = ' -DPROE_BUILD  -DPRO_MACHINE=19 -DPRO_OS=3 -DSOLARIS ';
+elsif ($^O =~ /solaris/i) {
+  $ProToolkitIncludeDir = '-Iprotk23-2002180/protoolkit/includes ';
+  $ProToolkitDefines = ' -DPRO_MACHINE=19 -DSOLARIS ';
   $ExtraLibs = '';
   $OtherLDFlags = '';
 }
@@ -70,7 +62,7 @@ WriteMakefile(
     #
     'dynamic_lib' => {
         OTHERLDFLAGS => $OtherLDFlags,
-    }
+    },
 
 
 );

@@ -1,16 +1,19 @@
-CAD/ProEngineer version 0.01
-============================
+CAD/ProEngineer
+===============
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
+COPYRIGHT AND LICENCE:
+  Copyright (C) 2003 Marc Mettes
+  See COPYRIGHT section in ProEngineer.pm for usage and distribution rights.
 
-A README file is required for CPAN modules since CPAN extracts the
-README file from a module distribution so that people browsing the
-archive can use it get an idea of the modules uses. It is usually a
-good idea to provide version information here so that people can
-decide whether fixes for the module are worth downloading.
+
+CAD::ProEngineer is an XS wrapper around the Pro/Toolkit (Pro/Engineer API) 
+libraries to provide the functions as perl subroutines.  A required element 
+is a Pro/Toolkit program with an embedded perl interpreter, which will use 
+this module to access Pro/Toolkit code.  An example of the necessary 
+interpreter code can be found in the 'perl561' subfolder, which also contains 
+unlocked binaries for Windows and Solaris.  These binaries may have hardcoded 
+paths so your mileage may vary.
+
 
 INSTALLATION
 
@@ -21,15 +24,22 @@ To install this module type the following:
    make test
    make install
 
+
 DEPENDENCIES
 
-This module requires these other modules and libraries:
+This module requires:
 
-  None
+  + A perl installation
+      + Perl 5.6.1 works
+      + Perl 5.8 and 6 have not been tested
 
-COPYRIGHT AND LICENCE
+  + C compiler (whichever compiled your main perl install)
+      + Win32 ActiveState Perl requires MS Visual C++
 
-Put the correct copyright and licence information here.
+  + A perl interpreter embedded into a toolkit program
+      + See the 'perl561' folder for source code and unlocked binaries
+      + A Pro/Toolkit license is required to compile the interpreter
 
-Copyright (C) 2003 Marc Mettes
+  + The Pro/Tookit header files
+
 

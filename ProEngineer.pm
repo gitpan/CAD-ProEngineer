@@ -34,7 +34,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw(
 	
 );
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub new {
     my($class) = @_;
@@ -242,6 +242,25 @@ sub AUTOLOAD {
 }  
 
 
+#
+# CAD::ProEngineer::ProParameter package
+#
+package CAD::ProEngineer::ProParameter;
+
+
+#
+# CAD::ProEngineer::ProParamvalue package
+#
+package CAD::ProEngineer::ProParamvalue;
+
+
+#
+# CAD::ProEngineer::ProDimension package
+#
+package CAD::ProEngineer::ProDimension;
+
+
+
 # Put package here again so autosplit does not get confused.
 package CAD::ProEngineer;
 1;
@@ -268,10 +287,6 @@ may vary.
 
 Functions implemented (to be documented at a later time):
 
-  ProCmdActionAdd()
-  ProDimensionInit()
-  ProDimensionSymbolGet()
-  ProDimensionValueGet()
   ProMdlCurrentGet()
   ProMdlDelete()
   ProMdlDisplay()
@@ -282,29 +297,40 @@ Functions implemented (to be documented at a later time):
   ProMdlModificationVerify()
   ProMdlNameGet()
   ProMdlPostfixIdGet()
-  ProMdlSave()
+  ProSolidPostfixIdGet()
   ProMdlSessionIdGet()
+  ProMdlSave()
   ProMdlSubtypeGet()
   ProMdlToModelitem()
   ProMdlTypeGet()
   ProMdlWindowGet()
-  ProMenubarmenuPushbuttonAdd()
+
   ProMessageClear()
   ProMessageDisplay()
   ProMessageDoubleRead()
   ProMessageIntegerRead()
   ProMessagePasswordRead()
   ProMessageStringRead()
+
+  ProCmdActionAdd()
+  ProMenubarmenuPushbuttonAdd()
+
+  ProDimensionInit()
+  ProDimensionSymbolGet()
+  ProDimensionValueGet()
+  ProSolidDimensionVisit()
+
   ProModelitemInit()
   ProModelitemMdlGet()
+
   ProParameterInit()
   ProParameterNameGet()
   ProParameterValueGet()
   ProParameterVisit()
   ProParamvalueValueGet()
-  ProSolidDimensionVisit()
-  ProSolidPostfixIdGet()
+
   ProTreetoolRefresh()
+
 
   These can be used by three (or more) methods:
 
@@ -327,53 +353,63 @@ Enum's available as perl subroutines:
   PRO_TK_BAD_INPUTS
   PRO_TK_USER_ABORT
   PRO_TK_E_NOT_FOUND
+
   PRO_TK_E_FOUND
   PRO_TK_LINE_TOO_LONG
   PRO_TK_CONTINUE
   PRO_TK_BAD_CONTEXT
   PRO_TK_NOT_IMPLEMENTED
+
   PRO_TK_OUT_OF_MEMORY
   PRO_TK_COMM_ERROR
   PRO_TK_NO_CHANGE
   PRO_TK_SUPP_PARENTS
   PRO_TK_PICK_ABOVE
+
   PRO_TK_INVALID_DIR
   PRO_TK_INVALID_FILE
   PRO_TK_CANT_WRITE
   PRO_TK_INVALID_TYPE
   PRO_TK_INVALID_PTR
+
   PRO_TK_UNAV_SEC
   PRO_TK_INVALID_MATRIX
   PRO_TK_INVALID_NAME
   PRO_TK_NOT_EXIST
   PRO_TK_CANT_OPEN
   PRO_TK_ABORT
+
   PRO_TK_NOT_VALID
   PRO_TK_INVALID_ITEM
   PRO_TK_MSG_NOT_FOUND
   PRO_TK_MSG_NO_TRANS
   PRO_TK_MSG_FMT_ERROR
+
   PRO_TK_MSG_USER_QUIT
   PRO_TK_MSG_TOO_LONG
   PRO_TK_CANT_ACCESS
   PRO_TK_OBSOLETE_FUNC
   PRO_TK_NO_COORD_SYSTEM
+
   PRO_TK_E_AMBIGUOUS
   PRO_TK_E_DEADLOCK
   PRO_TK_E_BUSY
   PRO_TK_E_IN_USE
   PRO_TK_NO_LICENSE
   PRO_TK_BSPL_UNSUITABLE_DEGREE
+
   PRO_TK_BSPL_NON_STD_END_KNOTS
   PRO_TK_BSPL_MULTI_INNER_KNOTS
   PRO_TK_BAD_SRF_CRV
   PRO_TK_EMPTY
   PRO_TK_BAD_DIM_ATTACH
+
   PRO_TK_NOT_DISPLAYED
   PRO_TK_CANT_MODIFY
   PRO_TK_CHECKOUT_CONFLICT
   PRO_TK_CRE_VIEW_BAD_SHEET
   PRO_TK_CRE_VIEW_BAD_MODEL
+
   PRO_TK_CRE_VIEW_BAD_PARENT
   PRO_TK_CRE_VIEW_BAD_TYPE
   PRO_TK_CRE_VIEW_BAD_EXPLODE
@@ -453,9 +489,19 @@ None by default, but a pseudo object oriented syntax can be used.
 
 Marc Mettes, E<lt>marcs_perl@yahoo.comE<gt>
 
+
+=head1 COPYRIGHT
+
+The CAD::ProEngineer module is Copyright (c) 2003 Marc Mettes.
+All rights reserved.
+
+You may distribute under the terms of either the GNU General Public
+License or the Artistic License, as specified in the Perl README file.
+
+
 =head1 SEE ALSO
 
-L<perl>.
+L<perl>, L<perlapi>, L<perlxs>, L<perlembed>.
 
 =cut
 
